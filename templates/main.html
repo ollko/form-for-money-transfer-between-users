@@ -1,0 +1,24 @@
+{% extends '__base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<section class="jumbotron text-center">
+    {% if messages %}
+    <div class="alert alert-warning">
+        <div class="container">
+            {% for message in messages %}
+              {{ message }}</br>
+            {% endfor %}       
+        </div>
+    </div>
+      {% endif %}
+    <div class="container">
+        <h1 class="jumbotron-heading">Перевести указанную сумму</h1>
+        <p class="lead text-muted">На этой странице вы можете списать указанную сумму со счета указанного пользователя и перевести на счета пользователей с указанным ИНН в равных частях (если переводится 60 рублей 10ти пользователям, то каждому попадет 6 рублей на счет)</p>
+        <p>
+            {% crispy form %}
+        </p>
+    </div>
+</section>
+{% endblock content %}
